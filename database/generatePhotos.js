@@ -16,8 +16,8 @@ const generateListingPhotos = () => {
   // Add an arbitrary # of photo objects to an array.
   for (let i = 0; i < numberOfPhotos; i += 1) {
     const randomPhoto = getRandomInt(0, 66);
-    // If the photo index has not been used yet, create the photo object with that index.
-    if (usedPhotos.indexOf(randomPhoto) === -1) {
+    // If the randomPhoto has not been used yet, create the photo object with that index.
+    if (!usedPhotos.includes(randomPhoto)) {
       const photoObj = {
         url: `https://s3-us-west-1.amazonaws.com/hackerhomephotos/photos/${randomPhoto}.jpg`,
         desc: faker.lorem.sentence(),
