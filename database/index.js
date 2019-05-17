@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
-const seedDB = require('./generateListings');
 
 mongoose.connect('mongodb://localhost/photos', { useNewUrlParser: true, useCreateIndex: true });
 
+// Schema
 const listingSchema = mongoose.Schema({
   listingID: { type: Number, unique: true },
   listingDesc: String,
@@ -10,16 +10,21 @@ const listingSchema = mongoose.Schema({
   listingPhotos: [{ url: String, desc: String, isVerified: Boolean }],
 });
 
+// Listing model
 const Listing = mongoose.model('Listing', listingSchema);
 
-// Create the array of 100 listings.
-const listingsArray = seedDB.generateListings();
+// Get photos from DB.
+const getPhotos = (listingID, callback) => {
+  Listing.find({ listingID }, (err, photos) => {
+    if (err) {
+      callback(err);
+    } else {
+      callback(null, photos);
+    }
+  });
+};
 
-// Seed MongoDB.
-Listing.insertMany(listingsArray, (err) => {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log('Successfully seeded database!');
-  }
-});
+module.exports = {
+  Listing,
+  getPhotos,
+};

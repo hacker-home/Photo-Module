@@ -17,6 +17,4 @@ const generateListings = () => {
   return listingsArray;
 };
 
-module.exports = {
-  generateListings,
-};
+module.exports = generateListings;
