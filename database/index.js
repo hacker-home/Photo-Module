@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const helper = require('./generateListings');
 
-mongoose.connect('mongodb://localhost/photos', { useNewUrlParser: true });
+mongoose.connect('mongodb://localhost/photos', { useNewUrlParser: true, useCreateIndex: true });
 
 const listingSchema = mongoose.Schema({
   listingID: { type: Number, unique: true },
