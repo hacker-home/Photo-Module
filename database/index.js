@@ -14,8 +14,8 @@ const listingSchema = mongoose.Schema({
 const Listing = mongoose.model('Listing', listingSchema);
 
 // Get photos from DB.
-const getPhotos = (listingID, callback) => {
-  Listing.find({ listingID }, (err, photos) => {
+const getPhotos = (targetID, callback) => {
+  Listing.find({ listingID: targetID }, (err, photos) => {
     if (err) {
       callback(err);
     } else {

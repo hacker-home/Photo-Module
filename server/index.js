@@ -13,9 +13,9 @@ app.use(express.static('public/dist/'));
 app.use(cors());
 app.use(bodyParser.json());
 
-app.get('/photos/', (req, res) => {
-  const { listingID } = req.query;
-  db.getPhotos(listingID, (err, photos) => {
+app.get('/photos', (req, res) => {
+  const targetID = req.query.listingID;
+  db.getPhotos(targetID, (err, photos) => {
     if (err) {
       res.status(500).send();
     } else {
