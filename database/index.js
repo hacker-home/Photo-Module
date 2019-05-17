@@ -1,5 +1,5 @@
 const mongoose = require('mongoose');
-const helper = require('./generateListings');
+const seedDB = require('./generateListings');
 
 mongoose.connect('mongodb://localhost/photos', { useNewUrlParser: true, useCreateIndex: true });
 
@@ -12,8 +12,10 @@ const listingSchema = mongoose.Schema({
 
 const Listing = mongoose.model('Listing', listingSchema);
 
-const listingsArray = helper.generateListings();
+// Create the array of 100 listings.
+const listingsArray = seedDB.generateListings();
 
+// Seed MongoDB.
 Listing.insertMany(listingsArray, (err) => {
   if (err) {
     console.log(err);
