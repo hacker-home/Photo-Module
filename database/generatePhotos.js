@@ -15,7 +15,7 @@ const generateListingPhotos = () => {
 
   // Add an arbitrary # of photo objects to an array.
   for (let i = 0; i < numberOfPhotos; i += 1) {
-    const randomPhoto = getRandomInt(0, 66);
+    const randomPhoto = getRandomInt(1, 66);
     // If the randomPhoto has not been used yet, create the photo object with that index.
     if (!usedPhotos.includes(randomPhoto)) {
       const photoObj = {
@@ -30,6 +30,4 @@ const generateListingPhotos = () => {
   return photosArray;
 };
 
-module.exports = {
-  generateListingPhotos,
-};
+module.exports = generateListingPhotos;

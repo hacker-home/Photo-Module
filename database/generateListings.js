@@ -1,5 +1,5 @@
 const faker = require('faker');
-const helper = require('./generatePhotos');
+const generateListingPhotos = require('./generatePhotos');
 
 const generateListings = () => {
   const listingsArray = [];
@@ -9,7 +9,7 @@ const generateListings = () => {
       listingID: i + 1,
       listingDesc: faker.lorem.sentence(),
       isSaved: faker.random.boolean(),
-      listingPhotos: helper.generateListingPhotos(),
+      listingPhotos: generateListingPhotos(),
     };
     listingsArray.push(listingObj);
   }
@@ -17,6 +17,4 @@ const generateListings = () => {
   return listingsArray;
 };
 
-module.exports = {
-  generateListings,
-};
+module.exports = generateListings;
