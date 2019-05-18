@@ -30,6 +30,4 @@ const generateListingPhotos = () => {
   return photosArray;
 };
 
-module.exports = {
-  generateListingPhotos,
-};
+module.exports = generateListingPhotos;
