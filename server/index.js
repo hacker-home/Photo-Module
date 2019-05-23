@@ -13,8 +13,8 @@ app.use(express.static('public/dist/'));
 app.use(cors());
 app.use(bodyParser.json());
 
-app.get('/photos', (req, res) => {
-  const targetID = req.query.listingID;
+app.get('/photos/:listingID', (req, res) => {
+  const targetID = req.params.listingID;
   db.getPhotos(targetID, (err, photos) => {
     if (err) {
       res.status(500).send();
