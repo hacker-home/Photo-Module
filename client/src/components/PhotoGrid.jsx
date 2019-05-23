@@ -11,26 +11,24 @@ class PhotoGrid extends Component {
 
   render() {
     const { photos } = this.props;
-    const firstPhoto = photos[0];
-    const otherPhotos = photos.slice(1, 5);
 
     return (
       <div className="photo-grid-wrapper">
         <div className="photo-grid">
           <div className="photo-wrapper first-photo">
-            <img className="photo" src={firstPhoto} alt="" />
+            <img className="photo" src={photos[0]} alt="" />
           </div>
           <div className="photo-wrapper col-2">
-            <img className="photo" src={otherPhotos[0]} alt="" />
+            <img className="photo" src={photos[1]} alt="" />
           </div>
           <div className="photo-wrapper col-3">
-            <img className="photo" src={otherPhotos[1]} alt="" />
+            <img className="photo" src={photos[2]} alt="" />
           </div>
           <div className="photo-wrapper col-2">
-            <img className="photo" src={otherPhotos[2]} alt="" />
+            <img className="photo" src={photos[3]} alt="" />
           </div>
           <div className="photo-wrapper col-3">
-            <img className="photo" src={otherPhotos[3]} alt="" />
+            <img className="photo" src={photos[4]} alt="" />
           </div>
         </div>
       </div>

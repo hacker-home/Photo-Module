@@ -19,9 +19,6 @@ module.exports = {
     '\\.(css|less)$': '<rootDir>/mocks/fileMock.js',
   },
 
-  // The paths to modules that run some code to configure or set up the testing environment before each test
-  setupFiles: ['<rootDir>/enzyme.config.js'],
-
   // The test environment that will be used for testing
   testEnvironment: 'jsdom',
 
