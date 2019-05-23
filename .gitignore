@@ -22,4 +22,8 @@ coverage
 
 # Compiled Dirs (http://nodejs.org/api/addons.html)
 build/
-dist/
+mocks/
+
+# Others
+package-lock.json
+enzyme.config.js

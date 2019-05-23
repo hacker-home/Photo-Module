@@ -13,10 +13,12 @@ class App extends Component {
   }
 
   // componentDidMount() {
-  //   axios.get('/photos?listingID=1')
+  //   axios.get('/photos/1')
   //     .then((response) => {
   //       const listingObj = response.data[0];
-  //       this.setState({ listing: listingObj });
+  //       const photosArr = listingObj.listingPhotos.map(photo => photo.url);
+  //       const photosObj = { photos: photosArr };
+  //       this.setState({ listing: photosObj });
   //     })
   //     .catch((error) => {
   //       console.log(error);

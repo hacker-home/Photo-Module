@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import Photo from './Photo.jsx';
 
 class PhotoGrid extends Component {
   constructor(props) {
@@ -33,7 +32,6 @@ class PhotoGrid extends Component {
           <div className="photo-wrapper col-3">
             <img className="photo" src={otherPhotos[3]} alt="" />
           </div>
-          {/* {otherPhotos.map((photo, index) => <Photo key={index} photo={photo} />)} */}
         </div>
       </div>
     );
