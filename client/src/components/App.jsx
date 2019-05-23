@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import DefaultData from '../DefaultData';
+import PhotoGrid from './PhotoGrid.jsx';
 
 class App extends Component {
   constructor(props) {
@@ -11,45 +12,25 @@ class App extends Component {
     };
   }
 
-  componentDidMount() {
-    axios.get('/photos?listingID=1')
-      .then((response) => {
-        const listingObj = response.data[0];
-        this.setState({ listing: listingObj });
-      })
-      .catch((error) => {
-        console.log(error);
-      });
-  }
+  // componentDidMount() {
+  //   axios.get('/photos/1')
+  //     .then((response) => {
+  //       const listingObj = response.data[0];
+  //       const photosArr = listingObj.listingPhotos.map(photo => photo.url);
+  //       const photosObj = { photos: photosArr };
+  //       this.setState({ listing: photosObj });
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     });
+  // }
 
   render() {
+    const { listing } = this.state;
     return (
-      <div>
-        <h1>Hello!!!!</h1>
-        <img src={(this.state.listing.listingPhotos)[0].url} />
-      </div>
+      <PhotoGrid photos={listing.photos} />
     );
   }
 }
 
 export default App;
-
-// let currentPage = this.state.page;
-// let showPage;
-
-// if (currentPage === 0) {
-//   showPage = <div><button onClick={ () => {this.changePage(1)} }>Checkout</button></div>
-// } else if (currentPage === 1) {
-//   showPage = <FormOne changePage={this.changePage} />
-// } else if (currentPage === 2) {
-//   showPage = <FormTwo changePage={this.changePage} />
-// } else if (currentPage === 3) {
-//   showPage = <FormThree changePage={this.changePage} />
-// } else if (currentPage === 4) {
-//   showPage = <Confirmation changePage={this.changePage} />
-// }
-
-// return (
-//   showPage
-// )
-// }
