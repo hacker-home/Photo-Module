@@ -28,7 +28,9 @@ class App extends Component {
   render() {
     const { listing } = this.state;
     return (
-      <PhotoGrid photos={listing.photos} />
+      <div>
+        <PhotoGrid photos={listing.photos} />
+      </div>
     );
   }
 }
