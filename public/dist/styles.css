@@ -151,9 +151,6 @@ button:hover {
   height: 15px;
   width: 15px;
   overflow: visible;
-  fill: #484848; 
-  fill-opacity:0;
-  stroke: #484848; 
   stroke-width: 1;
   vertical-align: middle;
 }
