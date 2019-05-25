@@ -5,9 +5,17 @@ import photoFour from '../../public/dist/samplePhotos/4.jpg';
 import photoFive from '../../public/dist/samplePhotos/5.jpg';
 import photoSix from '../../public/dist/samplePhotos/6.jpg';
 
-
 const DefaultData = {
-  photos: [photoOne, photoTwo, photoThree, photoFour, photoFive, photoSix],
+  listingDesc: 'Luxury Guest Home! - Guesthomes for Rent in San Francisco',
+  isSaved: false,
+  listingPhotos: [
+    { url: photoOne, desc: 'Check out that view!', isVerified: true },
+    { url: photoTwo, desc: 'Kitchen', isVerified: false },
+    { url: photoThree, desc: 'Bedroom', isVerified: true },
+    { url: photoFour, desc: 'Living Room', isVerified: true },
+    { url: photoFive, desc: 'Bathroom', isVerified: true },
+    { url: photoSix, desc: 'Lobby', isVerified: false },
+  ],
 };
 
 export default DefaultData;

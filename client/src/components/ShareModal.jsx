@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class ShareModal extends Component {
   constructor(props) {
@@ -7,6 +8,24 @@ class ShareModal extends Component {
     this.state = {
 
     };
+    this.handleOutsideClick = this.handleOutsideClick.bind(this);
+  }
+
+  componentWillMount() {
+    document.addEventListener('onClick', this.handleOutsideClick, false);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('onClick', this.handleOutsideClick, false);
+  }
+
+  handleOutsideClick(e) {
+    const { hideShareModal } = this.props;
+    // Ignore clicks on the modal itself
+    if (this.node.contains(e.target)) {
+      return;
+    }
+    hideShareModal();
   }
 
   render() {
@@ -15,8 +34,8 @@ class ShareModal extends Component {
     const showHideClassName = shareModalIsShown ? 'share-modal-bg' : 'display-none';
 
     return (
-      <div className={showHideClassName}>
-        <div className="share-modal-content">
+      <div className={showHideClassName} onClick={this.handleOutsideClick} role="presentation">
+        <div className="share-modal-content" ref={(node) => { this.node = node; }}>
           <button type="button" onClick={hideShareModal} className="close-button">
             <svg className="close-icon" viewBox="0 0 24 24">
               <path d="m23.25 24c-.19 0-.38-.07-.53-.22l-10.72-10.72-10.72 10.72c-.29.29-.77.29-1.06 0s-.29-.77 0-1.06l10.72-10.72-10.72-10.72c-.29-.29-.29-.77 0-1.06s.77-.29 1.06 0l10.72 10.72 10.72-10.72c.29-.29.77-.29 1.06 0s .29.77 0 1.06l-10.72 10.72 10.72 10.72c.29.29.29.77 0 1.06-.15.15-.34.22-.53.22" fillRule="evenodd" />
@@ -24,7 +43,9 @@ class ShareModal extends Component {
           </button>
           <div className="share-text">Share</div>
           <div className="share-listing-description">
-            Check out this awesome listing on Airbnb: {listingDesc}
+            Check out this awesome listing on Airbnb:
+            {' '}
+            {listingDesc}
           </div>
           <section>
             <div className="share-method-container">
@@ -69,7 +90,7 @@ class ShareModal extends Component {
             </div>
             <div className="share-method-container">
               <div className="share-method-wrapper">
-                <svg className="share-method-icon" height="24" viewBox="0 0 24 24" width="24">
+                <svg className="share-method-icon" viewBox="0 0 24 24">
                   <path d="m12 0c-6.63 0-12 5.37-12 12s5.37 12 12 12 12-5.37 12-12-5.37-12-12-12zm-4.19 14.05c.52.45.58 1.24.14 1.76-.25.29-.6.44-.95.44-.29 0-.58-.1-.81-.3l-3.5-3c-.28-.24-.44-.58-.44-.95s.16-.71.44-.95l3.5-3c .52-.45 1.31-.39 1.76.14.45.52.39 1.31-.14 1.76l-2.39 2.05zm6.88-6.69-3 10c-.16.54-.66.89-1.2.89-.12 0-.24-.02-.36-.05-.66-.2-1.04-.9-.84-1.56l3-10c .2-.66.9-1.04 1.56-.84s1.04.9.84 1.56zm3.12 8.59c-.52.45-1.31.39-1.76-.14s-.39-1.31.14-1.76l2.39-2.05-2.39-2.05c-.52-.45-.58-1.24-.14-1.76s1.24-.58 1.76-.14l3.5 3c .58.5.58 1.4 0 1.9z" />
                 </svg>
                 <span className="vertically-center">Embed</span>
@@ -81,5 +102,11 @@ class ShareModal extends Component {
     );
   }
 }
+
+ShareModal.propTypes = {
+  hideShareModal: PropTypes.func.isRequired,
+  shareModalIsShown: PropTypes.bool.isRequired,
+  listingDesc: PropTypes.string.isRequired,
+};
 
 export default ShareModal;

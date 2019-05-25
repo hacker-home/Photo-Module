@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class ShareButton extends Component {
   constructor(props) {
@@ -25,5 +26,9 @@ class ShareButton extends Component {
     );
   }
 }
+
+ShareButton.propTypes = {
+  showShareModal: PropTypes.func.isRequired,
+};
 
 export default ShareButton;

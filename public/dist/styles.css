@@ -13,8 +13,7 @@ body {
 }
 
 .photo-grid {
-  margin: 0px 2px;
-  padding: 2px 0px;
+  border: solid 1px;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
   grid-template-rows: repeat(2, minmax(auto, 240px));
