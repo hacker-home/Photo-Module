@@ -241,3 +241,11 @@ button:hover {
   display: inline-block;
   vertical-align: middle
 }
+
+.share-method-wrapper {
+  display: inline-block;
+}
+
+.share-method-wrapper:hover {
+  cursor: pointer;
+}
