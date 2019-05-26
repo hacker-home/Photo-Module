@@ -6,6 +6,7 @@ import ShareButton from './ShareButton';
 import SaveButton from './SaveButton';
 import ViewPhotosButton from './ViewPhotosButton';
 import ShareModal from './ShareModal';
+import PhotoCarousel from './PhotoCarousel';
 
 class App extends Component {
   constructor(props) {
@@ -16,31 +17,61 @@ class App extends Component {
       listingPhotos: DefaultData.listingPhotos,
       isSaved: DefaultData.isSaved,
       shareModalIsShown: false,
+      photoCarouselIsShown: false,
+      mainCarouselPhoto: DefaultData.listingPhotos[0],
     };
 
     this.onClickSave = this.onClickSave.bind(this);
+    this.handleClickedPhoto = this.handleClickedPhoto.bind(this);
+    this.showPhotoCarousel = this.showPhotoCarousel.bind(this);
+    this.hidePhotoCarousel = this.hidePhotoCarousel.bind(this);
     this.showShareModal = this.showShareModal.bind(this);
     this.hideShareModal = this.hideShareModal.bind(this);
   }
 
-  componentDidMount() {
-    axios.get('/photos/1')
-      .then((response) => {
-        const listingObj = response.data[0];
-        const { listingDesc } = listingObj;
-        const { listingPhotos } = listingObj;
-        const { isSaved } = listingObj;
-        this.setState({ listingDesc, listingPhotos, isSaved });
-      })
-      .catch((error) => {
-        throw (error);
-      });
-  }
+  // componentDidMount() {
+  //   axios.get('/photos/2')
+  //     .then((response) => {
+  //       const listingObj = response.data[0];
+  //       const { listingDesc } = listingObj;
+  //       const { listingPhotos } = listingObj;
+  //       const { isSaved } = listingObj;
+  //       this.setState({
+  //         listingDesc,
+  //         listingPhotos,
+  //         isSaved,
+  //         mainCarouselPhoto: listingObj.listingPhotos[0],
+  //       });
+  //     })
+  //     .catch((error) => {
+  //       throw (error);
+  //     });
+  // }
 
   onClickSave() {
     this.setState(prevState => ({
       isSaved: !prevState.isSaved,
     }));
+  }
+
+  handleClickedPhoto(e) {
+    const { listingPhotos } = this.state;
+    const clickedPhotoIndex = e.target.name;
+    const clickedPhotoObj = listingPhotos[clickedPhotoIndex];
+    this.setState({ mainCarouselPhoto: clickedPhotoObj });
+  }
+
+  showPhotoCarousel(e) {
+    if (e.target.name) {
+      this.handleClickedPhoto(e);
+      this.setState({ photoCarouselIsShown: true });
+    } else {
+      this.setState({ photoCarouselIsShown: true });
+    }
+  }
+
+  hidePhotoCarousel() {
+    this.setState({ photoCarouselIsShown: false });
   }
 
   showShareModal() {
@@ -51,18 +82,22 @@ class App extends Component {
     this.setState({ shareModalIsShown: false });
   }
 
+
   render() {
     const {
       listingDesc,
       listingPhotos,
       isSaved,
       shareModalIsShown,
+      photoCarouselIsShown,
+      mainCarouselPhoto,
     } = this.state;
     return (
       <div>
         <div className="photo-grid-container">
           <PhotoGrid
             photos={listingPhotos}
+            showPhotoCarousel={this.showPhotoCarousel}
           />
           <div className="share-and-save-buttons">
             <ShareButton
@@ -73,12 +108,21 @@ class App extends Component {
               onClickSave={this.onClickSave}
             />
           </div>
-          <ViewPhotosButton />
+          <ViewPhotosButton
+            showPhotoCarousel={this.showPhotoCarousel}
+          />
         </div>
         <ShareModal
           hideShareModal={this.hideShareModal}
           shareModalIsShown={shareModalIsShown}
           listingDesc={listingDesc}
+        />
+        <PhotoCarousel
+          photos={listingPhotos}
+          handleClickedPhoto={this.handleClickedPhoto}
+          hidePhotoCarousel={this.hidePhotoCarousel}
+          photoCarouselIsShown={photoCarouselIsShown}
+          mainCarouselPhoto={mainCarouselPhoto}
         />
       </div>
     );

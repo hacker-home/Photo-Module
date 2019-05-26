@@ -9,12 +9,24 @@ const DefaultData = {
   listingDesc: 'Luxury Guest Home! - Guesthomes for Rent in San Francisco',
   isSaved: false,
   listingPhotos: [
-    { url: photoOne, desc: 'Check out that view!', isVerified: true },
-    { url: photoTwo, desc: 'Kitchen', isVerified: false },
-    { url: photoThree, desc: 'Bedroom', isVerified: true },
-    { url: photoFour, desc: 'Living Room', isVerified: true },
-    { url: photoFive, desc: 'Bathroom', isVerified: true },
-    { url: photoSix, desc: 'Lobby', isVerified: false },
+    {
+      url: photoOne, desc: 'Check out that view!', isVerified: true,
+    },
+    {
+      url: photoTwo, desc: 'Kitchen', isVerified: false,
+    },
+    {
+      url: photoThree, desc: 'Living Room', isVerified: true,
+    },
+    {
+      url: photoFour, desc: 'Bedroom', isVerified: true,
+    },
+    {
+      url: photoFive, desc: 'Bathroom', isVerified: true,
+    },
+    {
+      url: photoSix, desc: 'Lobby', isVerified: false,
+    },
   ],
 };
 

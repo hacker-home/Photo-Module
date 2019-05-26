@@ -7,8 +7,8 @@ import DefaultData from '../client/src/DefaultData';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('PhotoGrid component', () => {
-  const { photos } = DefaultData;
-  const wrapper = shallow(<PhotoGrid photos={photos} />);
+  const { listingPhotos } = DefaultData;
+  const wrapper = shallow(<PhotoGrid photos={listingPhotos} />);
 
   it('should render the PhotoGrid component', () => {
     expect(wrapper.exists()).toBe(true);

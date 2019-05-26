@@ -86,7 +86,7 @@ body {
   }
 }
 
-button {
+.photo-grid-container button {
   border-radius: 4px;
   box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.14);
   font-size: 14px;
@@ -109,6 +109,7 @@ button:hover {
 
 .view-photos-button {
   box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.14);
+  border-radius: 4px;
   position: absolute;
   left: auto;
   right: 24px;
@@ -181,12 +182,13 @@ button:hover {
   display: none;
 }
 
-.close-button {
+.share-close-button {
   padding: 20px;
   margin: -20px;
+  border-color: transparent;
 }
 
-.close-icon {
+.share-close-icon {
   height: 16px;
   width: 16px;
   display: block;
@@ -247,4 +249,111 @@ button:hover {
 
 .share-method-wrapper:hover {
   cursor: pointer;
+}
+
+.photo-carousel {
+  background-color: #262626;
+  position: fixed;
+  z-index: 2000;
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  overflow-y: auto;
+  transform: translate3d(0px, 0px, 0px);
+}
+
+.photo-carousel-close-button {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  padding: 16px 28px 8px;
+  background-color: transparent;
+  border: none;
+}
+
+.photo-carousel-close-icon {
+  height: 28px;
+  width: 28px;
+  display: block;
+  fill: rgb(255, 255, 255);
+}
+
+.photo-modal-container {
+  position: relative;
+  height: 70vh;
+  margin-top: 11vh;
+  /* margin-bottom: 19vh;  */
+  margin-bottom: 10vh; 
+}
+
+.previous-button {
+  cursor: pointer;
+  position: absolute;
+  top: 0px;
+  height: 100%;
+  z-index: 3;
+  font-size: 0.5em;
+  width: 40px;
+  left: 0px;
+  background: none;
+  border-width: 0px;
+  border-style: initial;
+  border-color: initial;
+  border-image: initial;
+}
+
+.previous-button-icon {
+  height: 4.8em;
+  width: 4.8em;
+  fill: rgb(255, 255, 255);
+}
+
+.next-button {
+  cursor: pointer;
+  position: absolute;
+  top: 0px;
+  height: 100%;
+  z-index: 3;
+  font-size: 0.5em;
+  width: 40px;
+  right: 6px;
+  background: none;
+  border-width: 0px;
+  border-style: initial;
+  border-color: initial;
+  border-image: initial;
+}
+
+.next-button-icon {
+  height: 4.8em;
+  width: 4.8em;
+  fill: rgb(255, 255, 255);
+}
+
+.main-carousel-photo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.slideshow-photo {
+  transition: all 0.3s linear;
+  cursor: pointer;
+  max-width: 220px;
+  max-height: 67px;
+  text-align: left;
+  margin: 10px;
+
+}
+
+.photos-slider-wrapper {
+  display: flex;
+  max-width: 500px;
+  margin: 0 auto;
 }

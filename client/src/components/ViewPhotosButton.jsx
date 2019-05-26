@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class ViewPhotosButton extends Component {
   constructor(props) {
@@ -10,14 +11,19 @@ class ViewPhotosButton extends Component {
   }
 
   render() {
+    const { showPhotoCarousel } = this.props;
     return (
       <div className="view-photos-button">
-        <button type="button">
-          <span>View Photos</span>
+        <button type="button" onClick={showPhotoCarousel}>
+          View Photos
         </button>
       </div>
     );
   }
 }
+
+ViewPhotosButton.propTypes = {
+  showPhotoCarousel: PropTypes.func.isRequired,
+};
 
 export default ViewPhotosButton;
