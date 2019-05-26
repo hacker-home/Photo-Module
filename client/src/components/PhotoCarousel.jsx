@@ -9,8 +9,14 @@ class PhotoCarousel extends Component {
     super(props);
 
     this.state = {
-
+      photoSliderIsShown: true,
     };
+
+    this.togglePhotoSlider = this.togglePhotoSlider.bind(this);
+  }
+
+  togglePhotoSlider() {
+    this.setState(prevState => ({ photoSliderIsShown: !prevState.photoSliderIsShown }));
   }
 
   render() {
@@ -24,7 +30,10 @@ class PhotoCarousel extends Component {
       goToNextSlide,
     } = this.props;
 
+    const { photoSliderIsShown } = this.state;
+
     const photoCarouselClass = photoCarouselIsShown ? 'photo-carousel' : 'display-none';
+    const footerAndSliderClass = photoSliderIsShown ? 'footer-and-slider' : 'footer-and-slider hide';
 
     return (
       <div className={photoCarouselClass}>
@@ -39,23 +48,23 @@ class PhotoCarousel extends Component {
           goToPrevSlide={goToPrevSlide}
           goToNextSlide={goToNextSlide}
         />
-
-        <PhotoFooter
-          currentPhotoIndex={currentPhotoIndex}
-          photos={photos}
-        />
-
-        <div className="photos-slider-wrapper">
-          {
-            photos.map((photo, index) => (
-              <PhotoSlider
-                photo={photo.url}
-                index={index}
-                handleClickedPhoto={handleClickedPhoto}
-                key={photo.url}
+        <div className={footerAndSliderClass}>
+          <div className="footer-and-slider-content">
+            <div className="footer-and-slider-inner">
+              <PhotoFooter
+                photos={photos}
+                currentPhotoIndex={currentPhotoIndex}
+                togglePhotoSlider={this.togglePhotoSlider}
+                photoSliderIsShown={photoSliderIsShown}
               />
-            ))
-          }
+
+              <PhotoSlider
+                photos={photos}
+                handleClickedPhoto={handleClickedPhoto}
+                photoSliderIsShown={photoSliderIsShown}
+              />
+            </div>
+          </div>
         </div>
       </div>
     );

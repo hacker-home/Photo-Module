@@ -7,6 +7,7 @@ import SaveButton from './SaveButton';
 import ViewPhotosButton from './ViewPhotosButton';
 import ShareModal from './ShareModal';
 import PhotoCarousel from './PhotoCarousel';
+import '../../../public/dist/styles.css';
 
 class App extends Component {
   constructor(props) {

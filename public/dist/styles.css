@@ -72,6 +72,7 @@ body {
 
 .photo-grid > .photo-container:hover {
   opacity: 1.0;
+  transition: opacity 450ms;
 }
 
 @media screen and (max-width:880px) {  
@@ -348,6 +349,8 @@ button:hover {
   margin-left: auto;
   margin-right: auto;
   width: 784px;
+  top: 2px;
+  margin-bottom: 2px;
 }
 
 .caption-and-verified {
@@ -388,15 +391,47 @@ button:hover {
   margin: 10px 10px 10px 0px;
 }
 
-.photos-slider-wrapper {
+.photo-slider {
   display: flex;
   max-width: 783px;
   margin: 0 auto;
   overflow: hidden;
 }
 
+.footer-and-slider {
+  background-image: none;
+  background-color: transparent;
+  position: relative;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  color: rgb(255, 255, 255);
+  overflow: hidden;
+  border-radius: 0;
+}
+
+.footer-and-slider-content {
+  max-width: 105vh;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+}
+
+.footer-and-slider-inner {
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  transform: translateY(0);
+  transition: -ms-transform 0.2s ease-out 0s, -webkit-transform 0.2s ease-out 0s, transform 0.2s ease-out 0s;
+}
+
+.hide .footer-and-slider-inner {
+  transform: translateY(80px);
+}
+
 @media screen and (max-width:800px) {  
-  .photos-slider-wrapper {
+  .photo-slider {
     display: none;
   }
   .hide-button-container {
