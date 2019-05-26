@@ -281,7 +281,7 @@ button:hover {
   fill: rgb(255, 255, 255);
 }
 
-.photo-modal-container {
+.photo-modal-main {
   position: relative;
   height: 70vh;
   margin-top: 11vh;
@@ -333,6 +333,7 @@ button:hover {
 
 .main-carousel-photo {
   position: absolute;
+  cursor: pointer;
   top: 50%;
   left: 50%;
   transform: translateX(-50%) translateY(-50%);
@@ -340,7 +341,7 @@ button:hover {
   max-height: 100%;
 }
 
-.caption-verified-hide-button {
+.photo-footer {
   position: relative;
   background-color: transparent;
   color: rgb(255, 255, 255);
@@ -387,18 +388,11 @@ button:hover {
   margin: 10px 10px 10px 0px;
 }
 
-.photos-slider {
-  position: absolute;
-  left: 0px;
-  transition: -ms-transform 0.3s ease-out 0s, -webkit-transform 0.3s ease-out 0s, transform 0.3s ease-out 0s;
-  margin: 0px;
-  padding: 0px;
-}
-
 .photos-slider-wrapper {
   display: flex;
   max-width: 783px;
   margin: 0 auto;
+  overflow: hidden;
 }
 
 @media screen and (max-width:800px) {  

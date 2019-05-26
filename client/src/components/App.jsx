@@ -32,7 +32,7 @@ class App extends Component {
   }
 
   // componentDidMount() {
-  //   axios.get('/photos/2')
+  //   axios.get('/photos/3')
   //     .then((response) => {
   //       const listingObj = response.data[0];
   //       const { listingDesc } = listingObj;
@@ -42,7 +42,7 @@ class App extends Component {
   //         listingDesc,
   //         listingPhotos,
   //         isSaved,
-  //         currentPhotoIndex: listingObj.listingPhotos[0],
+  //         currentPhotoIndex: 0,
   //       });
   //     })
   //     .catch((error) => {
