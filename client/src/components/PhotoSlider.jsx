@@ -17,7 +17,9 @@ class PhotoSlider extends Component {
     } = this.props;
 
     return (
-      <img className="slideshow-photo" name={JSON.stringify(index)} src={photo} onClick={handleClickedPhoto} role="presentation" alt="" />
+      <div className="photosSlider">
+        <img className="slideshow-photo" name={JSON.stringify(index)} src={photo} onClick={handleClickedPhoto} role="presentation" alt="" />
+      </div>
     );
   }
 }

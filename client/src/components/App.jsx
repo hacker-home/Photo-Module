@@ -18,13 +18,15 @@ class App extends Component {
       isSaved: DefaultData.isSaved,
       shareModalIsShown: false,
       photoCarouselIsShown: false,
-      mainCarouselPhoto: DefaultData.listingPhotos[0],
+      currentPhotoIndex: 0,
     };
 
     this.onClickSave = this.onClickSave.bind(this);
     this.handleClickedPhoto = this.handleClickedPhoto.bind(this);
     this.showPhotoCarousel = this.showPhotoCarousel.bind(this);
     this.hidePhotoCarousel = this.hidePhotoCarousel.bind(this);
+    this.goToPrevSlide = this.goToPrevSlide.bind(this);
+    this.goToNextSlide = this.goToNextSlide.bind(this);
     this.showShareModal = this.showShareModal.bind(this);
     this.hideShareModal = this.hideShareModal.bind(this);
   }
@@ -40,7 +42,7 @@ class App extends Component {
   //         listingDesc,
   //         listingPhotos,
   //         isSaved,
-  //         mainCarouselPhoto: listingObj.listingPhotos[0],
+  //         currentPhotoIndex: listingObj.listingPhotos[0],
   //       });
   //     })
   //     .catch((error) => {
@@ -55,10 +57,8 @@ class App extends Component {
   }
 
   handleClickedPhoto(e) {
-    const { listingPhotos } = this.state;
-    const clickedPhotoIndex = e.target.name;
-    const clickedPhotoObj = listingPhotos[clickedPhotoIndex];
-    this.setState({ mainCarouselPhoto: clickedPhotoObj });
+    const clickedPhotoIndex = Number(e.target.name);
+    this.setState({ currentPhotoIndex: clickedPhotoIndex });
   }
 
   showPhotoCarousel(e) {
@@ -72,6 +72,34 @@ class App extends Component {
 
   hidePhotoCarousel() {
     this.setState({ photoCarouselIsShown: false });
+  }
+
+  goToPrevSlide() {
+    const { currentPhotoIndex, listingPhotos } = this.state;
+
+    if (currentPhotoIndex === 0) {
+      this.setState({
+        currentPhotoIndex: listingPhotos.length - 1,
+      });
+    } else {
+      this.setState(prevState => ({
+        currentPhotoIndex: prevState.currentPhotoIndex - 1,
+      }));
+    }
+  }
+
+  goToNextSlide() {
+    const { currentPhotoIndex, listingPhotos } = this.state;
+
+    if (currentPhotoIndex === listingPhotos.length - 1) {
+      this.setState({
+        currentPhotoIndex: 0,
+      });
+    } else {
+      this.setState(prevState => ({
+        currentPhotoIndex: prevState.currentPhotoIndex + 1,
+      }));
+    }
   }
 
   showShareModal() {
@@ -90,7 +118,7 @@ class App extends Component {
       isSaved,
       shareModalIsShown,
       photoCarouselIsShown,
-      mainCarouselPhoto,
+      currentPhotoIndex,
     } = this.state;
     return (
       <div>
@@ -122,7 +150,9 @@ class App extends Component {
           handleClickedPhoto={this.handleClickedPhoto}
           hidePhotoCarousel={this.hidePhotoCarousel}
           photoCarouselIsShown={photoCarouselIsShown}
-          mainCarouselPhoto={mainCarouselPhoto}
+          currentPhotoIndex={currentPhotoIndex}
+          goToPrevSlide={this.goToPrevSlide}
+          goToNextSlide={this.goToNextSlide}
         />
       </div>
     );
