@@ -348,7 +348,7 @@ button:hover {
   color: rgb(255, 255, 255);
   margin-left: auto;
   margin-right: auto;
-  width: 784px;
+  height: 34;
   top: 2px;
   margin-bottom: 10px;
 }
@@ -462,7 +462,7 @@ button:hover {
 }
 
 .hide .footer-and-slider-inner {
-  transform: translateY(80px);
+  transform: translateY(75px);
 }
 
 @media screen and (max-width:800px) {  

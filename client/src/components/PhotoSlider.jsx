@@ -20,7 +20,7 @@ class PhotoSlider extends Component {
 
     let translatedValue;
 
-    if (currentPhotoIndex === 0 && currentPhotoIndex < 4) {
+    if (currentPhotoIndex < 4) {
       translatedValue = 0;
     } else if (currentPhotoIndex === 4) {
       translatedValue = 97;
