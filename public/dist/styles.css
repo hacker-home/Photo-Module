@@ -393,17 +393,16 @@ button:hover {
   width: 11110px;
 }
 
-.photo-slider-list {
+.photo-slider-ul {
   position: absolute;
   list-style-type: none;
   left: 0px;
   transition: -ms-transform 0.3s ease-out 0s, -webkit-transform 0.3s ease-out 0s, transform 0.3s ease-out 0s;
   margin: 0px;
   padding: 0px;
-  background: #262626;
 }
 
-.slide-photo-list-item {
+.slide-photo-li {
   position: relative;
   float: left;
   cursor: pointer;

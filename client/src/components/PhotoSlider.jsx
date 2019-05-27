@@ -7,6 +7,7 @@ class PhotoSlider extends Component {
     super(props);
 
     this.state = {
+      // sliderPosition: 0,
     };
   }
 
@@ -17,10 +18,24 @@ class PhotoSlider extends Component {
       handleClickedPhoto,
     } = this.props;
 
+    let translatedValue;
+
+    if (currentPhotoIndex === 0 && currentPhotoIndex < 4) {
+      translatedValue = 0;
+    } else if (currentPhotoIndex === 4) {
+      translatedValue = 97;
+    } else if (currentPhotoIndex >= 5) {
+      translatedValue = (currentPhotoIndex - 4) * 110 + 97;
+    }
+
+    const translateStyle = {
+      transform: `translateX(-${translatedValue}px)`,
+    };
+
     return (
       <div className="photo-slider" aria-hidden="false">
         <div className="photo-slider-inner">
-          <ul className="photo-slider-list">
+          <ul className="photo-slider-ul" style={translateStyle}>
             {
               photos.map((photo, index) => (
                 <PhotoSliderPhoto

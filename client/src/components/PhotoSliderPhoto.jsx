@@ -20,7 +20,7 @@ class PhotoSliderPhoto extends Component {
     const slidePhotoContainerClass = index === currentPhotoIndex ? 'slide-photo-container brighten' : 'slide-photo-container';
 
     return (
-      <li className="slide-photo-list-item">
+      <li className="slide-photo-li">
         <button type="button" className={slidePhotoContainerClass}>
           <img className="slide-photo" name={index} src={photo} onClick={handleClickedPhoto} role="presentation" alt="" />
         </button>
