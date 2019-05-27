@@ -350,7 +350,7 @@ button:hover {
   margin-right: auto;
   width: 784px;
   top: 2px;
-  margin-bottom: 2px;
+  margin-bottom: 10px;
 }
 
 .caption-and-verified {
@@ -382,21 +382,57 @@ button:hover {
   fill: rgb(255, 255, 255);
 }
 
-.slideshow-photo {
-  transition: all 0.3s linear;
-  cursor: pointer;
-  max-width: 220px;
-  max-height: 67px;
-  text-align: left;
-  margin: 10px 10px 10px 0px;
-}
-
 .photo-slider {
-  display: flex;
-  max-width: 783px;
-  margin: 0 auto;
+  position: relative;
+  height: 67px;
   overflow: hidden;
 }
+
+.photo-slider-inner {
+  position: absolute;
+  width: 11110px;
+}
+
+.photo-slider-list {
+  position: absolute;
+  list-style-type: none;
+  left: 0px;
+  transition: -ms-transform 0.3s ease-out 0s, -webkit-transform 0.3s ease-out 0s, transform 0.3s ease-out 0s;
+  margin: 0px;
+  padding: 0px;
+  background: #262626;
+}
+
+.slide-photo-list-item {
+  position: relative;
+  float: left;
+  cursor: pointer;
+  background: transparent;
+  margin-right: 10px;
+}
+
+.slide-photo-container {
+  opacity: 0.5;
+  backface-visibility: hidden;
+  position: relative;
+  display: inline-block;
+  vertical-align: bottom;
+  overflow: hidden;
+  background: transparent;
+  border-width: 0px;
+  margin: 0px;
+  padding: 0px;
+}
+
+.brighten {
+  opacity: 1;
+}
+
+.slide-photo {
+  width: 100px;
+  height: 67px;
+}
+
 
 .footer-and-slider {
   background-image: none;

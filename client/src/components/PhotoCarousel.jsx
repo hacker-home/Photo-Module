@@ -57,9 +57,9 @@ class PhotoCarousel extends Component {
                 togglePhotoSlider={this.togglePhotoSlider}
                 photoSliderIsShown={photoSliderIsShown}
               />
-
               <PhotoSlider
                 photos={photos}
+                currentPhotoIndex={currentPhotoIndex}
                 handleClickedPhoto={handleClickedPhoto}
                 photoSliderIsShown={photoSliderIsShown}
               />

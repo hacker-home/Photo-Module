@@ -14,7 +14,7 @@ const DefaultData = {
   isSaved: false,
   listingPhotos: [
     {
-      url: photoOne, desc: 'Check out that view!', isVerified: true,
+      url: photoOne, desc: 'Modern Luxury Villa', isVerified: true,
     },
     {
       url: photoTwo, desc: 'Kitchen', isVerified: false,

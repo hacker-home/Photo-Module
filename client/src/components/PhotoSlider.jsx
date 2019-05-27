@@ -13,24 +13,27 @@ class PhotoSlider extends Component {
   render() {
     const {
       photos,
+      currentPhotoIndex,
       handleClickedPhoto,
-      // photoSliderIsShown,
     } = this.props;
 
-    // const photoSliderClass = photoSliderIsShown ? 'photo-slider' : 'display-none';
-
     return (
-      <div className="photo-slider">
-        {
-          photos.map((photo, index) => (
-            <PhotoSliderPhoto
-              photo={photo.url}
-              index={index}
-              handleClickedPhoto={handleClickedPhoto}
-              key={photo.url}
-            />
-          ))
-        }
+      <div className="photo-slider" aria-hidden="false">
+        <div className="photo-slider-inner">
+          <ul className="photo-slider-list">
+            {
+              photos.map((photo, index) => (
+                <PhotoSliderPhoto
+                  photo={photo.url}
+                  index={index}
+                  currentPhotoIndex={currentPhotoIndex}
+                  handleClickedPhoto={handleClickedPhoto}
+                  key={photo.url}
+                />
+              ))
+            }
+          </ul>
+        </div>
       </div>
     );
   }
@@ -38,8 +41,8 @@ class PhotoSlider extends Component {
 
 PhotoSlider.propTypes = {
   photos: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.any)).isRequired,
+  currentPhotoIndex: PropTypes.number.isRequired,
   handleClickedPhoto: PropTypes.func.isRequired,
-  photoSliderIsShown: PropTypes.bool.isRequired,
 };
 
 export default PhotoSlider;

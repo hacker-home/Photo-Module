@@ -13,13 +13,18 @@ class PhotoSliderPhoto extends Component {
     const {
       index,
       photo,
+      currentPhotoIndex,
       handleClickedPhoto,
     } = this.props;
 
+    const slidePhotoContainerClass = index === currentPhotoIndex ? 'slide-photo-container brighten' : 'slide-photo-container';
+
     return (
-      <div className="slide-photo">
-        <img className="slideshow-photo" name={index} src={photo} onClick={handleClickedPhoto} role="presentation" alt="" />
-      </div>
+      <li className="slide-photo-list-item">
+        <button type="button" className={slidePhotoContainerClass}>
+          <img className="slide-photo" name={index} src={photo} onClick={handleClickedPhoto} role="presentation" alt="" />
+        </button>
+      </li>
     );
   }
 }
@@ -27,6 +32,7 @@ class PhotoSliderPhoto extends Component {
 PhotoSliderPhoto.propTypes = {
   index: PropTypes.number.isRequired,
   photo: PropTypes.string.isRequired,
+  currentPhotoIndex: PropTypes.number.isRequired,
   handleClickedPhoto: PropTypes.func.isRequired,
 };
 
