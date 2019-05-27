@@ -72,6 +72,7 @@ body {
 
 .photo-grid > .photo-container:hover {
   opacity: 1.0;
+  transition: opacity 450ms;
 }
 
 @media screen and (max-width:880px) {  
@@ -86,7 +87,7 @@ body {
   }
 }
 
-button {
+.photo-grid-container button {
   border-radius: 4px;
   box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.14);
   font-size: 14px;
@@ -109,6 +110,7 @@ button:hover {
 
 .view-photos-button {
   box-shadow: 0 1px 1px 1px rgba(0, 0, 0, 0.14);
+  border-radius: 4px;
   position: absolute;
   left: auto;
   right: 24px;
@@ -181,12 +183,13 @@ button:hover {
   display: none;
 }
 
-.close-button {
+.share-close-button {
   padding: 20px;
   margin: -20px;
+  border-color: transparent;
 }
 
-.close-icon {
+.share-close-icon {
   height: 16px;
   width: 16px;
   display: block;
@@ -247,4 +250,226 @@ button:hover {
 
 .share-method-wrapper:hover {
   cursor: pointer;
+}
+
+.photo-carousel {
+  background-color: #262626;
+  position: fixed;
+  z-index: 2000;
+  height: 100%;
+  width: 100%;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  overflow-y: auto;
+  transform: translate3d(0px, 0px, 0px);
+}
+
+.photo-carousel-close-button {
+  position: absolute;
+  right: 0px;
+  top: 0px;
+  padding: 16px 28px 8px;
+  background-color: transparent;
+  border: none;
+}
+
+.photo-carousel-close-icon {
+  height: 28px;
+  width: 28px;
+  display: block;
+  fill: rgb(255, 255, 255);
+}
+
+.photo-modal-main {
+  position: relative;
+  height: 70vh;
+  margin-top: 11vh;
+}
+
+.previous-button {
+  cursor: pointer;
+  position: absolute;
+  top: 0px;
+  height: 100%;
+  z-index: 3;
+  font-size: 0.5em;
+  width: 40px;
+  left: 0px;
+  background: none;
+  border-width: 0px;
+  border-style: initial;
+  border-color: initial;
+  border-image: initial;
+}
+
+.previous-button-icon {
+  height: 4.8em;
+  width: 4.8em;
+  fill: rgb(255, 255, 255);
+}
+
+.next-button {
+  cursor: pointer;
+  position: absolute;
+  top: 0px;
+  height: 100%;
+  z-index: 3;
+  font-size: 0.5em;
+  width: 40px;
+  right: 6px;
+  background: none;
+  border-width: 0px;
+  border-style: initial;
+  border-color: initial;
+  border-image: initial;
+}
+
+.next-button-icon {
+  height: 4.8em;
+  width: 4.8em;
+  fill: rgb(255, 255, 255);
+}
+
+.main-carousel-photo {
+  position: absolute;
+  cursor: pointer;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.photo-footer {
+  position: relative;
+  background-color: transparent;
+  color: rgb(255, 255, 255);
+  margin-left: auto;
+  margin-right: auto;
+  width: 784px;
+  top: 2px;
+  margin-bottom: 10px;
+}
+
+.caption-and-verified {
+  display: inline-block;
+}
+
+.verified-photo {
+  color: #767676;
+}
+
+.visibility-hidden {
+  visibility: hidden;
+}
+
+.hide-button {
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: rgb(255, 255, 255);
+  font-size: 100%;
+  background: transparent;
+  padding: 0;
+  border-width: 0;
+}
+
+.hide-icon {
+  height: 10px; 
+  width: 10px; 
+  fill: rgb(255, 255, 255);
+}
+
+.photo-slider {
+  position: relative;
+  height: 67px;
+  overflow: hidden;
+}
+
+.photo-slider-inner {
+  position: absolute;
+  width: 11110px;
+}
+
+.photo-slider-ul {
+  position: absolute;
+  list-style-type: none;
+  left: 0px;
+  transition: -ms-transform 0.3s ease-out 0s, -webkit-transform 0.3s ease-out 0s, transform 0.3s ease-out 0s;
+  margin: 0px;
+  padding: 0px;
+}
+
+.slide-photo-li {
+  position: relative;
+  float: left;
+  cursor: pointer;
+  background: transparent;
+  margin-right: 10px;
+}
+
+.slide-photo-container {
+  opacity: 0.5;
+  backface-visibility: hidden;
+  position: relative;
+  display: inline-block;
+  vertical-align: bottom;
+  overflow: hidden;
+  background: transparent;
+  border-width: 0px;
+  margin: 0px;
+  padding: 0px;
+}
+
+.brighten {
+  opacity: 1;
+}
+
+.slide-photo {
+  width: 100px;
+  height: 67px;
+}
+
+
+.footer-and-slider {
+  background-image: none;
+  background-color: transparent;
+  position: relative;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 2;
+  color: rgb(255, 255, 255);
+  overflow: hidden;
+  border-radius: 0;
+}
+
+.footer-and-slider-content {
+  max-width: 105vh;
+  margin-left: auto;
+  margin-right: auto;
+  overflow: hidden;
+}
+
+.footer-and-slider-inner {
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  transform: translateY(0);
+  transition: -ms-transform 0.2s ease-out 0s, -webkit-transform 0.2s ease-out 0s, transform 0.2s ease-out 0s;
+}
+
+.hide .footer-and-slider-inner {
+  transform: translateY(80px);
+}
+
+@media screen and (max-width:800px) {  
+  .photo-slider {
+    display: none;
+  }
+  .hide-button-container {
+    display: none;
+  }
 }

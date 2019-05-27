@@ -6,29 +6,28 @@ class PhotoGrid extends Component {
     super(props);
 
     this.state = {
-
     };
   }
 
   render() {
-    const { photos } = this.props;
+    const { photos, showPhotoCarousel } = this.props;
 
     return (
       <div className="photo-grid">
         <div className="photo-container first-photo">
-          <img className="photo" src={photos[0].url} alt="" />
+          <img className="photo" name="0" src={photos[0].url} onClick={showPhotoCarousel} role="presentation" alt="" />
         </div>
         <div className="photo-container col-2 photo-two">
-          <img className="photo" src={photos[1].url} alt="" />
+          <img className="photo" name="1" src={photos[1].url} onClick={showPhotoCarousel} role="presentation" alt="" />
         </div>
         <div className="photo-container col-3 photo-three">
-          <img className="photo" src={photos[2].url} alt="" />
+          <img className="photo" name="2" src={photos[2].url} onClick={showPhotoCarousel} role="presentation" alt="" />
         </div>
         <div className="photo-container col-2 photo-four">
-          <img className="photo" src={photos[3].url} alt="" />
+          <img className="photo" name="3" src={photos[3].url} onClick={showPhotoCarousel} role="presentation" alt="" />
         </div>
         <div className="photo-container col-3 photo-five">
-          <img className="photo" src={photos[4].url} alt="" />
+          <img className="photo" name="4" src={photos[4].url} onClick={showPhotoCarousel} role="presentation" alt="" />
         </div>
       </div>
     );
@@ -36,7 +35,8 @@ class PhotoGrid extends Component {
 }
 
 PhotoGrid.propTypes = {
-  photos: PropTypes.arrayOf(PropTypes.string).isRequired,
+  photos: PropTypes.arrayOf(PropTypes.objectOf(PropTypes.any)).isRequired,
+  showPhotoCarousel: PropTypes.func.isRequired,
 };
 
 export default PhotoGrid;
