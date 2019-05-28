@@ -473,3 +473,7 @@ button:hover {
     display: none;
   }
 }
+
+:focus {
+  outline: none;
+}

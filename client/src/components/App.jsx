@@ -22,6 +22,7 @@ class App extends Component {
       currentPhotoIndex: 0,
     };
 
+    this.getPhotos = this.getPhotos.bind(this);
     this.onClickSave = this.onClickSave.bind(this);
     this.handleClickedPhoto = this.handleClickedPhoto.bind(this);
     this.showPhotoCarousel = this.showPhotoCarousel.bind(this);
@@ -33,7 +34,17 @@ class App extends Component {
   }
 
   componentDidMount() {
-    axios.get('/photos/3')
+    this.getPhotos();
+  }
+
+  onClickSave() {
+    this.setState(prevState => ({
+      isSaved: !prevState.isSaved,
+    }));
+  }
+
+  getPhotos() {
+    axios.get('/photos/1')
       .then((response) => {
         const listingObj = response.data[0];
         const { listingDesc } = listingObj;
@@ -49,12 +60,6 @@ class App extends Component {
       .catch((error) => {
         throw (error);
       });
-  }
-
-  onClickSave() {
-    this.setState(prevState => ({
-      isSaved: !prevState.isSaved,
-    }));
   }
 
   handleClickedPhoto(e) {
