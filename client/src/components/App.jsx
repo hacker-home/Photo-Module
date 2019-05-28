@@ -32,24 +32,24 @@ class App extends Component {
     this.hideShareModal = this.hideShareModal.bind(this);
   }
 
-  // componentDidMount() {
-  //   axios.get('/photos/3')
-  //     .then((response) => {
-  //       const listingObj = response.data[0];
-  //       const { listingDesc } = listingObj;
-  //       const { listingPhotos } = listingObj;
-  //       const { isSaved } = listingObj;
-  //       this.setState({
-  //         listingDesc,
-  //         listingPhotos,
-  //         isSaved,
-  //         currentPhotoIndex: 0,
-  //       });
-  //     })
-  //     .catch((error) => {
-  //       throw (error);
-  //     });
-  // }
+  componentDidMount() {
+    axios.get('/photos/3')
+      .then((response) => {
+        const listingObj = response.data[0];
+        const { listingDesc } = listingObj;
+        const { listingPhotos } = listingObj;
+        const { isSaved } = listingObj;
+        this.setState({
+          listingDesc,
+          listingPhotos,
+          isSaved,
+          currentPhotoIndex: 0,
+        });
+      })
+      .catch((error) => {
+        throw (error);
+      });
+  }
 
   onClickSave() {
     this.setState(prevState => ({

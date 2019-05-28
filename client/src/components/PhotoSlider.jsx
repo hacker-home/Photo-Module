@@ -7,7 +7,6 @@ class PhotoSlider extends Component {
     super(props);
 
     this.state = {
-      // sliderPosition: 0,
     };
   }
 
