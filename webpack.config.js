@@ -23,6 +23,11 @@ module.exports = {
       {
         test: /\.(gif|svg|jpg|png)$/,
         loader: 'file-loader',
+        // options: {
+        //   modules: true,
+        //   importLoaders: 1,
+        //   localIdentName: '[sha1:hash:hex:8]',
+        // },
       },
     ]
   },

@@ -44,7 +44,7 @@ class App extends Component {
   }
 
   getPhotos() {
-    axios.get('/photos/1')
+    axios.get(`/photos/${window.location.href.match(/id\s*=\s*(.*)/)[1]}`)
       .then((response) => {
         const listingObj = response.data[0];
         const { listingDesc } = listingObj;
