@@ -7,7 +7,7 @@ import SaveButton from './SaveButton';
 import ViewPhotosButton from './ViewPhotosButton';
 import ShareModal from './ShareModal';
 import PhotoCarousel from './PhotoCarousel';
-import '../../../public/dist/styles.css';
+import css from '../../../public/dist/styles.css';
 
 class App extends Component {
   constructor(props) {
@@ -34,7 +34,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.getPhotos();
+    // this.getPhotos();
   }
 
   onClickSave() {
@@ -128,12 +128,12 @@ class App extends Component {
     } = this.state;
     return (
       <div>
-        <div className="photo-grid-container">
+        <div className={css['photo-grid-container']}>
           <PhotoGrid
             photos={listingPhotos}
             showPhotoCarousel={this.showPhotoCarousel}
           />
-          <div className="share-and-save-buttons">
+          <div className={css['share-and-save-buttons']}>
             <ShareButton
               showShareModal={this.showShareModal}
             />

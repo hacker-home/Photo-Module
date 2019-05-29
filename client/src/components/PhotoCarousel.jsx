@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import PhotoSlider from './PhotoSlider';
 import PhotoFooter from './PhotoFooter';
 import PhotoModalMain from './PhotoModalMain';
+import css from '../../../public/dist/styles.css';
 
 class PhotoCarousel extends Component {
   constructor(props) {
@@ -32,13 +33,13 @@ class PhotoCarousel extends Component {
 
     const { photoSliderIsShown } = this.state;
 
-    const photoCarouselClass = photoCarouselIsShown ? 'photo-carousel' : 'display-none';
-    const footerAndSliderClass = photoSliderIsShown ? 'footer-and-slider' : 'footer-and-slider hide';
+    const photoCarouselClass = photoCarouselIsShown ? css['photo-carousel'] : css['display-none'];
+    const footerAndSliderClass = photoSliderIsShown ? css['footer-and-slider'] : `${css['footer-and-slider']} ${css.hide}`;
 
     return (
       <div className={photoCarouselClass}>
-        <button type="button" onClick={hidePhotoCarousel} className="photo-carousel-close-button">
-          <svg className="photo-carousel-close-icon" viewBox="0 0 24 24">
+        <button type="button" onClick={hidePhotoCarousel} className={css['photo-carousel-close-button']}>
+          <svg className={css['photo-carousel-close-icon']} viewBox="0 0 24 24">
             <path d="m23.25 24c-.19 0-.38-.07-.53-.22l-10.72-10.72-10.72 10.72c-.29.29-.77.29-1.06 0s-.29-.77 0-1.06l10.72-10.72-10.72-10.72c-.29-.29-.29-.77 0-1.06s.77-.29 1.06 0l10.72 10.72 10.72-10.72c.29-.29.77-.29 1.06 0s .29.77 0 1.06l-10.72 10.72 10.72 10.72c.29.29.29.77 0 1.06-.15.15-.34.22-.53.22" fillRule="evenodd" />
           </svg>
         </button>
@@ -49,8 +50,8 @@ class PhotoCarousel extends Component {
           goToNextSlide={goToNextSlide}
         />
         <div className={footerAndSliderClass}>
-          <div className="footer-and-slider-content">
-            <div className="footer-and-slider-inner">
+          <div className={css['footer-and-slider-content']}>
+            <div className={css['footer-and-slider-inner']}>
               <PhotoFooter
                 photos={photos}
                 currentPhotoIndex={currentPhotoIndex}

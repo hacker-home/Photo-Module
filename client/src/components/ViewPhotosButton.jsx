@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import css from '../../../public/dist/styles.css';
 
 class ViewPhotosButton extends Component {
   constructor(props) {
@@ -13,7 +14,7 @@ class ViewPhotosButton extends Component {
   render() {
     const { showPhotoCarousel } = this.props;
     return (
-      <div className="view-photos-button">
+      <div className={css['view-photos-button']}>
         <button type="button" onClick={showPhotoCarousel}>
           View Photos
         </button>

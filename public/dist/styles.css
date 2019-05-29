@@ -365,10 +365,10 @@ button:hover {
   visibility: hidden;
 }
 
-.hide-button {
+.hide-button-new {
   position: absolute;
-  right: 0;
   top: 0;
+  right: 0;
   color: rgb(255, 255, 255);
   font-size: 100%;
   background: transparent;
@@ -469,7 +469,7 @@ button:hover {
   .photo-slider {
     display: none;
   }
-  .hide-button-container {
+  .hide-button-new {
     display: none;
   }
 }

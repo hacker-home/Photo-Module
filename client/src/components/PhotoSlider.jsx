@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import PhotoSliderPhoto from './PhotoSliderPhoto';
+import css from '../../../public/dist/styles.css';
 
 class PhotoSlider extends Component {
   constructor(props) {
@@ -32,9 +33,9 @@ class PhotoSlider extends Component {
     };
 
     return (
-      <div className="photo-slider" aria-hidden="false">
-        <div className="photo-slider-inner">
-          <ul className="photo-slider-ul" style={translateStyle}>
+      <div className={css['photo-slider']} aria-hidden="false">
+        <div className={css['photo-slider-inner']}>
+          <ul className={css['photo-slider-ul']} style={translateStyle}>
             {
               photos.map((photo, index) => (
                 <PhotoSliderPhoto

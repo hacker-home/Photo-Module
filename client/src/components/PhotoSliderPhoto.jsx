@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import css from '../../../public/dist/styles.css';
 
 class PhotoSliderPhoto extends Component {
   constructor(props) {
@@ -17,12 +18,11 @@ class PhotoSliderPhoto extends Component {
       handleClickedPhoto,
     } = this.props;
 
-    const slidePhotoContainerClass = index === currentPhotoIndex ? 'slide-photo-container brighten' : 'slide-photo-container';
-
+    const slidePhotoContainerClass = index === currentPhotoIndex ? `${css['slide-photo-container']} ${css.brighten}` : css['slide-photo-container'];
     return (
-      <li className="slide-photo-li">
+      <li className={css['slide-photo-li']}>
         <button type="button" className={slidePhotoContainerClass}>
-          <img className="slide-photo" name={index} src={photo} onClick={handleClickedPhoto} role="presentation" alt="" />
+          <img className={css['slide-photo']} name={index} src={photo} onClick={handleClickedPhoto} role="presentation" alt="" />
         </button>
       </li>
     );
