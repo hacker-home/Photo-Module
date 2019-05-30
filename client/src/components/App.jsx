@@ -34,7 +34,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    // this.getPhotos();
+    this.getPhotos();
   }
 
   onClickSave() {
