@@ -1,6 +1,7 @@
 const mongoose = require('mongoose');
 
 mongoose.connect('mongodb://localhost/photos', { useNewUrlParser: true, useCreateIndex: true });
+// mongoose.connect('mongodb://172.17.0.3/photos', { useNewUrlParser: true, useCreateIndex: true });
 
 // Schema
 const listingSchema = mongoose.Schema({

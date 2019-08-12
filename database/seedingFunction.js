@@ -1,3 +1,4 @@
+const mongoose = require('mongoose');
 const generateListings = require('./generateListings');
 const { Listing } = require('./index');
 
@@ -12,6 +13,7 @@ Listing.insertMany(listingsArray, (err) => {
   if (err) {
     console.log(err);
   } else {
+    mongoose.connection.close();
     console.log('Successfully seeded database!');
   }
 });

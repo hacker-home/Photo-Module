@@ -1,0 +1,13 @@
+version: '2.1'
+
+services:
+  airbnb-photos:
+    image: airbnb-photos
+    build: .
+    environment:
+      NODE_ENV: development
+    ports:
+      - 3001:3001
+      - 9229:9229
+    ## set your startup file here
+    command: node --inspect index.js
