@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import DefaultData from '../DefaultData';
 import PhotoGrid from './PhotoGrid';
 import ShareButton from './ShareButton';
 import SaveButton from './SaveButton';
@@ -14,9 +13,9 @@ class App extends Component {
     super(props);
 
     this.state = {
-      listingDesc: DefaultData.listingDesc,
-      listingPhotos: DefaultData.listingPhotos,
-      isSaved: DefaultData.isSaved,
+      listingDesc: '',
+      listingPhotos: [],
+      isSaved: '',
       shareModalIsShown: false,
       photoCarouselIsShown: false,
       currentPhotoIndex: 0,
@@ -44,12 +43,10 @@ class App extends Component {
   }
 
   getPhotos() {
-    axios.get(`/photos/${window.location.href.match(/id\s*=\s*(.*)/)[1]}`)
+    axios.get(`/photos/${window.location.href.split('?id=')[1]}`)
       .then((response) => {
         const listingObj = response.data[0];
-        const { listingDesc } = listingObj;
-        const { listingPhotos } = listingObj;
-        const { isSaved } = listingObj;
+        const { listingDesc, listingPhotos, isSaved } = listingObj;
         this.setState({
           listingDesc,
           listingPhotos,
@@ -126,6 +123,11 @@ class App extends Component {
       photoCarouselIsShown,
       currentPhotoIndex,
     } = this.state;
+
+    if (listingPhotos.length === 0) {
+      return (null);
+    }
+
     return (
       <div>
         <div className={css['photo-grid-container']}>

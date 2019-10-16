@@ -7,6 +7,7 @@ class PhotoFooter extends Component {
     super(props);
 
     this.state = {
+
     };
   }
 

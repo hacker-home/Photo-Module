@@ -5,9 +5,7 @@ import css from '../../../public/dist/styles.css';
 class ShareModal extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
-
     };
     this.handleOutsideClick = this.handleOutsideClick.bind(this);
   }

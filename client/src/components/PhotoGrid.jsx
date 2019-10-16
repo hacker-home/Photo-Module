@@ -5,7 +5,6 @@ import css from '../../../public/dist/styles.css';
 class PhotoGrid extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
     };
   }

@@ -7,6 +7,7 @@ class PhotoSliderPhoto extends Component {
     super(props);
 
     this.state = {
+
     };
   }
 
