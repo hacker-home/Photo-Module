@@ -15,7 +15,6 @@ describe('PhotoGrid component', () => {
   });
 
   it('renders 5 photos on the PhotoGrid', () => {
-    expect(wrapper.find('photo-grid')).toBeDefined();
-    expect(wrapper.find('.photo')).toHaveLength(5);
+    expect(wrapper.find('.photo-container')).toHaveLength(5);
   });
 });

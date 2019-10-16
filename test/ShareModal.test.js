@@ -6,9 +6,8 @@ import ShareModal from '../client/src/components/ShareModal';
 Enzyme.configure({ adapter: new Adapter() });
 
 describe('ShareModal component', () => {
-  const wrapper = shallow(<ShareModal />);
-
   it('should render the ShareModal component', () => {
+    const wrapper = shallow(<ShareModal />);
     expect(wrapper.exists()).toBe(true);
   });
 });
