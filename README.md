@@ -18,7 +18,7 @@
 
 ```bash
 # clone this repository
-$ git clone https://github.com/the-nuggets/photos-and-modal.git
+$ git clone https://github.com/hacker-home/Photo-Module.git
 
 # Install dependencies
 $ npm install
@@ -27,7 +27,7 @@ $ npm install
 $ npm run seed
 
 # Bundle files with webpack
-$ npm run build
+$ npm run react-dev
 
 # Run the app
 $ npm run start
