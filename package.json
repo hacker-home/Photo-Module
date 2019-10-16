@@ -1,5 +1,5 @@
 {
-  "name": "Airbnb-photos",
+  "name": "airbnb-photos",
   "version": "1.0.0",
   "description": "",
   "author": "William Chan",
@@ -10,7 +10,7 @@
   "scripts": {
     "react-dev": "webpack -d --watch",
     "build": "webpack -p",
-    "start": "node server/index.js",
+    "start": "nodemon server/index.js",
     "seed": "node database/seedingFunction.js",
     "deploy": "npm run seed && npm run start",
     "test": "jest",

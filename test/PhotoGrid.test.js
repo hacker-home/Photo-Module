@@ -1,6 +1,6 @@
 import React from 'react';
 import Adapter from 'enzyme-adapter-react-16';
-import Enzyme, { configure, shallow, mount, render } from 'enzyme';
+import Enzyme, { shallow } from 'enzyme';
 import PhotoGrid from '../client/src/components/PhotoGrid';
 import DefaultData from '../client/src/DefaultData';
 
